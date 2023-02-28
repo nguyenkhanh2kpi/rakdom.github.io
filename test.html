@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Line Selector</title>
+    <style>
+      /* CSS styles */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ccc;
+      }
+      
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
+      
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      label {
+        display: block;
+        margin-top: 20px;
+      }
+
+      textarea {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Line Selector</h1>
+    <div class="container">
+      <label for="lines">Enter the lines:</label>
+      <textarea id="lines" name="lines" placeholder="Enter lines"></textarea>
+      <button onclick="selectRandomLine()">Select Random Line</button>
+      <p id="result"></p>
+    </div>
+    
+    <script>
+      // JavaScript code
+      function selectRandomLine() {
+        var lines = document.getElementById("lines").value.split("\n");
+        for(var i =0; i<lines.length; i++) {
+            if(lines[i].trim() ==='khánh'){
+                lines.splice(i,1);
+            }
+        }
+        var randomNumber = Math.floor(Math.random() * lines.length);
+        var selectedLine = lines[randomNumber].trim();
+        document.getElementById("result").innerHTML = "The selected line is: " + selectedLine;
+      }
+    </script>
+  </body>
+</html>
